@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Samson Fund";
+}
+
+<div class="row" id="HomeDiv">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" id="HomeSection">
+        <p>Description for picture and 'Why Us?' button</p>
+    </div>
+    <div id="HomeImage" style="position: relative;">
+        <img src="@Url.Content("~/Images/ImagePlaceholder.png")" />
+        <div>
+            <a href="@Url.Action("Why", "Home")" class="btn btn-default">
+                <span>What is Samson Fund?</span>
+            </a>
+        </div>
+    </div>
+</div>

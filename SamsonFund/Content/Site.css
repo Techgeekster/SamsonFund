@@ -1,0 +1,333 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.nav.navbar-nav {
+    background-color: #86C43F;
+    text-align: center;
+    margin: 0 !important;
+}
+
+    .nav.navbar-nav li a {
+        color: black;
+        font-size: 20px;
+        font-weight: bold;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .navbar-inverse .navbar-collapse {
+        border: none;
+    }
+
+.navbar-toggle {
+    border: none;
+    position: absolute;
+    top: 5px;
+    right: -10px;
+}
+
+#SamsonLogo {
+     height: 100px;
+}
+
+footer a {
+    color: black;
+    text-decoration: none;
+}
+
+.container.body-content hr {
+    border-color: #8C8C8C;
+}
+
+.footerList {
+    display: inline-block;
+    padding: 0;
+}
+
+.footerList li.fst {
+    margin-left: 0;
+}
+
+.footerList li {
+    list-style-type: square;
+    color: #86C43F;
+    float: left;
+    margin-left: 30px;
+}
+
+.footerList li div {
+    color: black;
+}
+
+#gmap_canvas img {
+    max-width: none !important;
+    background: none !important;
+}
+
+#HomeSection {
+    text-align: right;
+    height: 400px;
+}
+
+    #HomeSection p {
+        position: absolute;
+        top: 30%;
+        right: 15px;
+    }
+
+    #HomeImage {
+        margin-bottom: 20px;
+    }
+
+        #HomeImage div {
+            position: absolute;
+            bottom: -25px;
+            left: 160px;
+        }
+        
+            #HomeImage div a {
+                height: 60px;
+                padding-top: 13px;
+            }
+
+                #HomeImage div a span {
+                    font-size: 22px;
+                }
+
+h2 {
+    color: #86C43F; 
+    font-weight: bold;
+}
+
+h3 {
+    color: #86C43F; 
+    font-weight: bold;
+}
+
+.formLabel {
+    width: 110px;
+    float: left;
+    margin-top: 7px;
+}
+
+.btn.btn-default {
+    background-color: #86C43F;
+    border-color: #83C23C;
+    font-weight: bold;
+}
+
+#HomeImage img {
+    max-width: 400px;
+}
+
+#QuartersImage {
+    height: 275px;
+}
+
+#WhyVideos iframe {
+    width: 400px; 
+    height: 225px;
+}
+
+#SamsonMapSection {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+    .samsonMap {
+        height: 325px; 
+        width: 425px;
+    }
+
+.error {
+    color: red;
+    font-weight: normal;
+    font-style: italic;
+    font-size: 12px;
+}
+
+/*Medium*/
+@media only screen and (min-width: 992px) and (max-width: 1199px)
+{
+    h3 {
+        font-size: 22px;
+    }
+
+    #QuartersImage {
+        height: 250px;
+    }
+
+    #WhyVideos iframe {
+        width: 350px;
+        height: 197px;
+    }
+}
+
+/*Small*/
+@media only screen and (min-width: 768px) and (max-width: 991px)
+{
+    h2 {
+        font-size: 28px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    #ContactSection h3 {
+        font-size: 16px;
+    }
+
+    h4 {
+        font-size: 15px;
+    }
+
+    #HomeImage img {
+        max-width: 350px;
+    }
+
+    #QuartersImage {
+        height: 225px;
+    }
+
+    #WhyVideos iframe {
+        width: 275px;
+        height: 155px;
+    }
+
+    .samsonMap {
+        height: 350px; 
+        width: auto;
+    }
+}
+
+/*X-Small*/
+@media only screen and (max-width: 767px)
+{
+    .footerList li.fst {
+        margin-left: 30px !important;
+    }
+
+    #QuartersImage {
+        height: 250px;
+    }
+
+    #WhyVideos {
+        margin-top: 30px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+        #WhyVideos iframe {
+            width: 350px;
+            height: 197px;
+        }
+
+    #ContactSection h3 {
+        font-size: 22px;
+    }
+
+    .samsonMap {
+        height: 350px; 
+        width: auto;
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (min-width: 351px) and (max-width: 767px)
+{
+    #HomeSection {
+        text-align: left;
+        height: initial;
+    }
+
+        #HomeSection p {
+            position: initial;
+            margin-left: 30px;
+        }
+
+    #HomeImage {
+        text-align: center;
+    }
+
+        #HomeImage img {
+            max-width: 325px;
+            margin-bottom: 30px;
+        }
+
+        #HomeImage div {
+            bottom: 10px;
+            left: 30px;
+        }
+
+        #HomeImage div a {
+            height: 45px;
+            padding-top: 10px;
+        }
+
+            #HomeImage div a span {
+                font-size: 18px;
+            }
+
+}
+
+@media only screen and (max-width: 520px)
+{
+    .navbar-header {
+        margin-left: -12px !important;
+    }
+}
+
+@media only screen and (max-width: 350px)
+{
+    #HomeSection {
+        text-align: left;
+        height: initial;
+    }
+
+        #HomeSection p {
+            position: initial;
+        }
+
+        #HomeImage img {
+            max-width: 250px;
+            margin-bottom: 20px;
+            margin-left: 25px;
+        }
+
+        #HomeImage div {
+            bottom: 5px;
+            left: 15px;
+        }
+
+            #HomeImage div a {
+                height: initial;
+                padding-top: 5px;
+            }
+
+                #HomeImage div a span {
+                    font-size: 15px;
+                }
+}
