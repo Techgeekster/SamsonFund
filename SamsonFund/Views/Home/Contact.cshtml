@@ -121,12 +121,22 @@
                         });
                 },
                 success: function (response) {
-                    $.toast("<b style='font-size: 18px'>Your request has been sent.</b>",
+                    if (response.Success != "False")
+                    {
+                        $.toast("<b style='font-size: 18px'>Your request has been sent.</b>",
                         {
                             duration: 3000,
                             type: 'success'
-                        }
-                    );
+                        });
+                    }
+                    else
+                    {
+                        $.toast("<b style='font-size: 18px; text-align: center;'>There was an error processing your request.</b>",
+                        {
+                            duration: 3000,
+                            type: 'error'
+                        });
+                    }
                 }
             });
         }

@@ -9,9 +9,9 @@ namespace SamsonFund.Classes
     {
         public void SendGmailEmail(string to, string from, string subject, string body, bool isHtml)
         {
-            SmtpClient ss = new SmtpClient("smtp.gmail.com", 587);
+            SmtpClient ss = new SmtpClient("smtp.gmail.com", 465);
             ss.EnableSsl = true;
-            ss.Timeout = 10000;
+            //ss.Timeout = 10000;
             ss.DeliveryMethod = SmtpDeliveryMethod.Network;
             ss.UseDefaultCredentials = false;
 
@@ -30,6 +30,7 @@ namespace SamsonFund.Classes
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex);
+                throw;
             }
         }
     }
