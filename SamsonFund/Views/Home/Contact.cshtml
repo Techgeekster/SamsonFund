@@ -8,15 +8,15 @@
         <form id="ContactForm">
             <div class="form-group">
                 <label class="formLabel" for="contactName">Name</label>
-                <input type="text" name="contactName" class="name form-control" id="contactName" placeholder="Name" required />
+                <input type="text" name="contactName" class="name form-control" id="contactName" placeholder="Name" />
             </div>
             <div class="form-group">
                 <label class="formLabel" for="contactPhoneNumber">Phone Number</label>
-                <input type="text" name="contactPhoneNumber" class="phone form-control" id="contactPhoneNumber" required />
+                <input type="text" name="contactPhoneNumber" class="phone form-control" id="contactPhoneNumber" />
             </div>
             <div class="form-group">
                 <label class="formLabel" for="contactEmailAddress">Email Address</label>
-                <input type="email" name="contactEmailAddress" class="email form-control" id="contactEmailAddress" placeholder="Email Address" required />
+                <input type="email" name="contactEmailAddress" class="email form-control" id="contactEmailAddress" placeholder="Email Address" />
             </div>
             <div class="form-group">
                 <label class="formLabel" for="contactMessage">Message</label>
@@ -49,48 +49,86 @@
             $.toast.config.height = 200;
 
             $('#contactPhoneNumber').mask('(000) 000-0000', { placeholder: "(___) ___-____" });
+        });
 
-            $("#ContactForm").validate();
+        $(function () {
+            jQuery.validator.addMethod("phone", function (value, element) {
+                if ($('.email').val() && value.trim().length == 0)
+                    return true;
+                else
+                {
+                    //remove mask to only get digits
+                    value = value.replace(/_/g, "");
+                    value = value.replace(/ /g, "");
+                    value = value.replace("(", "");
+                    value = value.replace(")", "");
+                    value = value.replace("-", "");
 
-            $("#ContactForm").validate({
-                rules: {
-                    name: { required: true },
-                    phone: {
-                        required: function () {
-                            if ($(".email").val())
-                                return false;
-                            return true;
-                        },
-                        minLength: 10
-                    },
-                    email: {
-                        required: function () {
-                            if ($(".phone").val())
-                                return false;
-                            return true;
-                        },
-                        email: true
+                    return value.trim().length === 10;
+                }
+            }, "*Please enter a 10 digit phone number");
+
+            jQuery.validator.addMethod("emailorphone", function (value, element) {
+                if ($(element).is('.phone'))
+                {
+                    if ($('.email').val())
+                        return true;
+                    else {
+                        //remove mask to only get digits
+                        value = value.replace(/_/g, "");
+                        value = value.replace(/ /g, "");
+                        value = value.replace("(", "");
+                        value = value.replace(")", "");
+                        value = value.replace("-", "");
+
+                        return value.trim().length > 0;
                     }
+                }
+                else if ($(element).is('.email'))
+                {
+                    if ($('.phone').val())
+                    {
+                        var phoneNumber = $('.phone').val()
+                        //remove mask to only get digits
+                        phoneNumber = phoneNumber.replace(/_/g, "");
+                        phoneNumber = phoneNumber.replace(/ /g, "");
+                        phoneNumber = phoneNumber.replace("(", "");
+                        phoneNumber = phoneNumber.replace(")", "");
+                        phoneNumber = phoneNumber.replace("-", "");
+
+                        if (phoneNumber)
+                            return true;
+                    }
+                    else {
+                        return value.trim().length > 0;
+                    }
+                }
+            }, "*Please enter a valid email or phone");
+
+            jQuery.validator.addClassRules({
+                phone: {
+                    emailorphone: true,
+                    phone: true
                 },
-                messages: {
-                    name: {
-                        required: "*Please enter a name"
-                    },
-                    phone: {
-                        required: "*Please enter a phone or an email"
-                    },
-                    email: {
-                        required: "*Please enter an email or a phone"
-                    }
+                name: { required: true },
+                email: {
+                    emailorphone: true,
+                    email: true
                 }
             });
 
             jQuery.extend(jQuery.validator.messages, {
-                name: "Please enter a name.",
-                equalTo: "Password fields do not match.",
-                email: "Please enter a valid email butthole.",
+                required: "*Required",
+                email: "*Please enter a valid email address",
             });
 
+            $("#ContactForm").validate({
+                submitHandler: function (form) {
+                    return false;
+                },
+                ignore: [],
+                onsubmit: false
+            });
         });
 
         $("#contactFormSubmit").click(function () {

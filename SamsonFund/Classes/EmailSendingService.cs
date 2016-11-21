@@ -9,7 +9,9 @@ namespace SamsonFund.Classes
     {
         public void SendGmailEmail(string to, string from, string subject, string body, bool isHtml)
         {
-            SmtpClient ss = new SmtpClient("smtp.gmail.com", 465);
+            SmtpClient ss = new SmtpClient("smtp.gmail.com", 587); //local
+            //SmtpClient ss = new SmtpClient("smtp.gmail.com", 465); //production
+
             ss.EnableSsl = true;
             //ss.Timeout = 10000;
             ss.DeliveryMethod = SmtpDeliveryMethod.Network;
